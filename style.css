@@ -67,7 +67,7 @@ main {
 #quest-instructions {
     display: none;
     padding: 20px;
-    background-image: url('parchment.jpg'); /* Replace with a parchment texture image */
+    background-image: url('parchment1.jpg'); /* Replace with a parchment texture image */
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
