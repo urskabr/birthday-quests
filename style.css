@@ -27,7 +27,7 @@ header h1 {
 
 /* Style the main content area with a parchment-like background */
 main {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -36,9 +36,36 @@ main {
     text-align: center;
 }
 
-/* Style the quest container with a parchment background */
-#quest-container {
-    text-align: center;
+/* Style the quest list and details */
+.quest-list, .quest-details {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+    margin: 0 1%;
+}
+
+/* Style the quest list with checkboxes */
+#quests {
+    list-style: none;
+    padding: 0;
+}
+
+.quest-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.quest-item label {
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Style the quest instructions */
+#quest-instructions {
+    display: none;
     padding: 20px;
     background-image: url('parchment.jpg'); /* Replace with a parchment texture image */
     border: 1px solid #ccc;
@@ -46,8 +73,15 @@ main {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Style the 'Next' button with Witcher colors and font */
-#next-button {
+/* Style the 'Completed' checkmark */
+.completed {
+    color: #00b800;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+/* Style the 'Start' button */
+#start-button {
     background-color: #b90000;
     color: #fff;
     padding: 10px 20px;
@@ -61,7 +95,7 @@ main {
     transition: background-color 0.3s;
 }
 
-/* Style the 'Next' button on hover */
-#next-button:hover {
+/* Style the 'Start' button on hover */
+#start-button:hover {
     background-color: #8c0000;
 }
