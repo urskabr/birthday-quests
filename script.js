@@ -21,20 +21,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initialize quest list
   const questList = document.getElementById('quests');
-  quests.forEach((quest, index) => {
-    const questItem = document.createElement('li');
-    questItem.classList.add('quest-item');
-    questItem.innerHTML = `
-      <input type="checkbox" id="quest${index}" class="quest-checkbox">
-      <label for="quest${index}">${quest.name}</label>
-    `;
-    questList.appendChild(questItem);
 
-    // Add event listener to each quest item
-    questItem.addEventListener('click', () => {
-      showQuestDetails(quest);
+  // Function to display quest list
+  function displayQuestList() {
+    quests.forEach((quest, index) => {
+      const questItem = document.createElement('li');
+      questItem.classList.add('quest-item');
+      questItem.innerHTML = `
+        <input type="checkbox" id="quest${index}" class="quest-checkbox">
+        <label for="quest${index}">${quest.name}</label>
+      `;
+      questList.appendChild(questItem);
+
+      // Add event listener to each quest item
+      questItem.addEventListener('click', () => {
+        showQuestDetails(quest);
+      });
     });
-  });
+  }
+
+  displayQuestList();
 
   // Function to display quest details
   function showQuestDetails(quest) {
