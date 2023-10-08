@@ -16,7 +16,31 @@ document.addEventListener('DOMContentLoaded', function () {
       clue: 'A faint whisper beckons from the heart of Brokilon Forest. Explore its depths to uncover its source.',
       image: 'quest3.jpg',
     },
-    // Add more quests with their details
+    {
+      name: 'Quest 4: Challenges Unveiled',
+      clue: 'Seek out three hidden challenges scattered across Skellige\'s islands. Complete them to reveal their secrets.',
+      image: 'quest4.jpg',
+    },
+    {
+      name: 'Quest 5: A Murky Swamp Mystery',
+      clue: 'An old legend speaks of treasure lost in Crookback Bog. Investigate the legends and uncover its truth.',
+      image: 'quest5.jpg',
+    },
+    {
+      name: 'Quest 6: Roach\'s Trail',
+      clue: 'Follow Roach\'s hoofprints through the countryside to a hidden secret. Roach knows the way.',
+      image: 'quest6.jpg',
+    },
+    {
+      name: 'Quest 7: The Whispering Forest',
+      clue: 'Navigate the ancient forest paths where whispers echo. What secrets do they hold?',
+      image: 'quest7.jpg',
+    },
+    {
+      name: 'Quest 8: The Castle\'s Riddle',
+      clue: 'A mysterious riddle from Castle Tuirseach hints at a hidden treasure within its walls. Solve the riddle to claim your prize.',
+      image: 'quest8.jpg',
+    },
   ];
 
   // Initialize quest list
