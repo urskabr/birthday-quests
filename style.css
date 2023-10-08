@@ -1,72 +1,101 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Define quest data
-  const quests = [
-    {
-      name: 'Quest 1: The Mysterious Assignment',
-      clue: 'A letter has arrived at your doorstep with a cryptic message. Solve the mystery it holds.',
-      gift: 'A pair of stylish socks',
-    },
-    {
-      name: 'Quest 2: The Enigmatic Contract',
-      clue: 'You\'ve received an unusual contract from an unknown sender. Investigate its origins and fulfill the request.',
-      gift: 'A pair of special Witcher-themed pants',
-    },
-    {
-      name: 'Quest 3: A Whisper in the Woods',
-      clue: 'A faint whisper beckons from the heart of Brokilon Forest. Explore its depths to uncover its source.',
-      gift: 'A pair of comfortable sleeping pants',
-    },
-    // Add more quests with their details
-  ];
+/* Reset some default styles for consistency */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
 
-  // Initialize quest list
-  const questList = document.getElementById('quests');
-  quests.forEach((quest, index) => {
-    const questItem = document.createElement('li');
-    questItem.classList.add('quest-item');
-    questItem.innerHTML = `
-      <input type="checkbox" id="quest${index}" class="quest-checkbox">
-      <label for="quest${index}">${quest.name}</label>
-    `;
-    questList.appendChild(questItem);
+/* Style the body with a dark background */
+body {
+    background-color: #1a1a1a;
+    font-family: Arial, sans-serif;
+    color: #ddd;
+}
 
-    // Add event listener to each quest item
-    questItem.addEventListener('click', () => {
-      showQuestDetails(quest);
-    });
-  });
+/* Style the header with Witcher font and medallion background */
+header {
+    background-color: #333;
+    text-align: center;
+    padding: 20px 0;
+}
 
-  // Function to display quest details
-  function showQuestDetails(quest) {
-    const questInstructions = document.getElementById('quest-instructions');
-    questInstructions.innerHTML = `
-      <h2>${quest.name}</h2>
-      <p>${quest.clue}</p>
-      <button id="start-button">Start Quest</button>
-    `;
+header h1 {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-size: 36px;
+    color: #fff;
+    text-transform: uppercase;
+}
 
-    const startButton = document.getElementById('start-button');
-    startButton.addEventListener('click', () => {
-      completeQuest(quest);
-    });
+/* Style the main content area with a parchment-like background */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
 
-    questInstructions.style.display = 'block';
-  }
+/* Style the quest list and details */
+.quest-list, .quest-details {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+    margin: 0 1%;
+}
 
-  // Function to mark a completed quest
-  function completeQuest(quest) {
-    const questIndex = quests.indexOf(quest);
-    const questCheckbox = document.querySelector(`#quest${questIndex}`);
-    questCheckbox.checked = true;
+/* Style the quest list with checkboxes */
+#quests {
+    list-style: none;
+    padding: 0;
+}
 
-    const completedLabel = document.createElement('span');
-    completedLabel.classList.add('completed');
-    completedLabel.textContent = 'Completed';
-    questCheckbox.parentNode.appendChild(completedLabel);
+.quest-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
 
-    // Remove event listener to prevent further interaction with the completed quest
-    questCheckbox.parentNode.removeEventListener('click', () => {
-      showQuestDetails(quest);
-    });
-  }
-});
+.quest-item label {
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Style the quest instructions */
+#quest-instructions {
+    display: none;
+    padding: 20px;
+    background-image: url('parchment.jpg'); /* Replace with a parchment texture image */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the 'Completed' checkmark */
+.completed {
+    color: #00b800;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+/* Style the 'Start' button */
+#start-button {
+    background-color: #b90000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+}
+
+/* Style the 'Start' button on hover */
+#start-button:hover {
+    background-color: #8c0000;
+}
