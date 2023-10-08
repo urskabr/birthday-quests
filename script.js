@@ -4,28 +4,29 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       name: 'Quest 1: The Mysterious Assignment',
       clue: 'A letter has arrived at your doorstep with a cryptic message. Solve the mystery it holds.',
-      gift: 'A pair of stylish socks',
+      image: 'quest1.jpg',
     },
     {
       name: 'Quest 2: The Enigmatic Contract',
       clue: 'You\'ve received an unusual contract from an unknown sender. Investigate its origins and fulfill the request.',
-      gift: 'A pair of special Witcher-themed pants',
+      image: 'quest2.jpg',
     },
     {
       name: 'Quest 3: A Whisper in the Woods',
       clue: 'A faint whisper beckons from the heart of Brokilon Forest. Explore its depths to uncover its source.',
-      gift: 'A pair of comfortable sleeping pants',
+      image: 'quest3.jpg',
     },
     // Add more quests with their details
   ];
 
   // Initialize quest list
   const questList = document.getElementById('quests');
-  const questInstructions = document.getElementById('quest-instructions');
+  const questDetails = document.getElementById('quest-details');
   const questImage = document.getElementById('quest-image');
   const questCompleteButton = document.getElementById('quest-complete-button');
+  const gifImage = document.getElementById('gif-image');
 
-  let currentQuestIndex = -1;
+  let completedQuests = [];
 
   // Function to display quest list
   function displayQuestList() {
@@ -40,39 +41,57 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Add event listener to each quest item
       questItem.addEventListener('click', () => {
-        showQuestDetails(quest, index);
+        showQuestClue(quest);
       });
     });
   }
 
-  // Function to show quest details
-  function showQuestDetails(quest, index) {
-    currentQuestIndex = index;
-    questInstructions.innerHTML = `<p>${quest.clue}</p>`;
+  // Function to show quest clue
+  function showQuestClue(quest) {
+    questDetails.innerHTML = `<p>${quest.clue}</p>`;
     questImage.style.display = 'none';
     questCompleteButton.style.display = 'none';
-    questInstructions.style.display = 'block';
+    questDetails.style.display = 'block';
+    const nextButton = document.createElement('button');
+    nextButton.textContent = 'Next';
+    nextButton.addEventListener('click', () => {
+      showQuestImage(quest);
+    });
+    questDetails.appendChild(nextButton);
   }
 
-  // Function to start a quest
-  function startQuest() {
-    questInstructions.style.display = 'none';
-    questImage.src = `quest${currentQuestIndex}.jpg`; // Replace with actual image file names
+  // Function to show quest image
+  function showQuestImage(quest) {
+    questDetails.style.display = 'none';
+    questImage.src = quest.image;
     questImage.style.display = 'block';
-    questCompleteButton.style.display = 'block';
+    const solveButton = document.createElement('button');
+    solveButton.textContent = 'I Solved the Quest';
+    solveButton.addEventListener('click', () => {
+      completeQuest(quest);
+    });
+    questDetails.appendChild(solveButton);
   }
 
   // Function to complete a quest
-  function completeQuest() {
-    const questCheckbox = document.querySelector(`#quest${currentQuestIndex}`);
+  function completeQuest(quest) {
+    const questCheckbox = document.querySelector(`#quest${quests.indexOf(quest)}`);
     questCheckbox.checked = true;
-    questInstructions.innerHTML = `<p>Congratulations! You have completed this quest and found your gift.</p>`;
-    questCompleteButton.style.display = 'none';
+    questDetails.innerHTML = `<p>Congratulations! You have completed this quest.</p>`;
+    questDetails.style.display = 'block';
+    questCompleteButton.style.display = 'block';
+    completedQuests.push(quest);
+    questList.removeChild(questCheckbox.parentElement);
+    if (completedQuests.length === quests.length) {
+      gifImage.style.display = 'block';
+    }
   }
 
-  // Add event listener to "Start Quest" button
+  // Add event listener to "Quest Complete" button
   questCompleteButton.addEventListener('click', () => {
-    completeQuest();
+    questCompleteButton.style.display = 'none';
+    gifImage.style.display = 'none';
+    displayQuestList();
   });
 
   displayQuestList();
