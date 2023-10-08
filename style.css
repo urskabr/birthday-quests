@@ -1,0 +1,46 @@
+/* Reset some default styles for consistency */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling for header and footer */
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Style the main content area */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style the quest container */
+#quest-container {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the 'Next' button */
+#next-button {
+    background-color: #0074cc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Style the 'Next' button on hover */
+#next-button:hover {
+    background-color: #0056a0;
+}
