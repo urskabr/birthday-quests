@@ -1,0 +1,76 @@
+/* General styles */
+body {
+  font-family: 'Trebuchet MS', sans-serif;
+  background-color: #161616;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Quest list styles */
+#quests {
+  list-style: none;
+  padding: 0;
+}
+
+.quest-item {
+  margin-bottom: 10px;
+}
+
+.quest-checkbox {
+  margin-right: 10px;
+}
+
+/* Quest details styles */
+#quest-details {
+  display: none;
+}
+
+.quest-details p {
+  font-size: 18px;
+}
+
+/* Quest image styles */
+#quest-image {
+  display: none;
+  max-width: 100%;
+  margin-top: 10px;
+}
+
+/* Quest complete button styles */
+#quest-complete-button {
+  display: none;
+  background-color: #d0021b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#quest-complete-button:hover {
+  background-color: #ff4f64;
+}
+
+/* GIF image styles */
+#gif-image {
+  display: none;
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+/* Link styles */
+a {
+  color: #00c8ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
